@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Spending Tracker</title>
+</head>
+
+<body>
+    <main>
+        <h1>Spending Tracker</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/account">Account</a>
+                </li>
+                <li>
+                    <a href="/u">Transactions</a>
+                </li>
+                <li>
+                    <a href="/visits">My Merchants</a>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            {% block content %}
+
+            {% endblock%}
+        </section>
+    </main>
+</body>
+
+</html>
