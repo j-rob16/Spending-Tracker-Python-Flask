@@ -6,3 +6,7 @@ class User:
         self.age = age
         self.wallet = wallet
         self.id = id
+
+    def pay_for_goods(self, amount):
+        self.wallet -= amount
+        # call update from user repo here

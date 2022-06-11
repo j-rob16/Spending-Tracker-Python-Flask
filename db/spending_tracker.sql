@@ -1,9 +1,17 @@
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS totals;
+DROP TABLE IF EXISTS stocks;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS merchants;
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     age INT,
-    wallet, INT
+    wallet INT
 );
 
 CREATE TABLE merchants (
@@ -24,12 +32,18 @@ CREATE TABLE products (
     price VARCHAR(255)
 );
 
+CREATE TABLE tags (
+    id SERIAL PRIMARY KEY,
+    category VARCHAR(255)
+);
+
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     amount INT,
-    product INT REFERNCES products(id) 
+    product INT REFERENCES products(id), 
     user_id INT REFERENCES users(id),
-    merchant_id INT REFERENCES merchants(id)
+    merchant_id INT REFERENCES merchants(id),
+    tag_id INT REFERENCES tags(id)
 );
 
 CREATE TABLE stocks (
@@ -37,9 +51,3 @@ CREATE TABLE stocks (
     merchant_id INT REFERENCES merchants(id),
     product_id INT REFERENCES products(id)
 );
-
-CREATE TABLE tags (
-    id SERIAL PRIMARY KEY,
-    category VARCHAR(255),
-    product_id INT REFERENCES products(id)
-)
