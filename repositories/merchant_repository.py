@@ -7,3 +7,7 @@ def save(merchant):
     results = run_sql(sql, values)
     merchant.id = results[0]['id']
     return merchant
+
+def delete_all():
+    sql = "DELETE FROM merchants"
+    run_sql(sql)

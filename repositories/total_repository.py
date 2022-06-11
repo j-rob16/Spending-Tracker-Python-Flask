@@ -7,3 +7,7 @@ def save(total):
     results = run_sql(sql, values)
     total.id = results[0]['id']
     return total
+
+def delete_all():
+    sql = "DELETE FROM totals"
+    run_sql(sql)

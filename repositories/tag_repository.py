@@ -7,3 +7,7 @@ def save(tag):
     results = run_sql(sql, values)
     tag.id = results[0]['id']
     return tag
+
+def delete_all():
+    sql = "DELETE FROM tags"
+    run_sql(sql)

@@ -7,3 +7,7 @@ def save(transaction):
     results = run_sql(sql, values)
     transaction.id = results[0]['id']
     return transaction
+
+def delete_all():
+    sql = "DELETE FROM transactions"
+    run_sql(sql)

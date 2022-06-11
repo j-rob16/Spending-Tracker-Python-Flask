@@ -7,3 +7,7 @@ def save(user):
     results = run_sql(sql, values)
     user.id = results[0]['id']
     return user
+
+def delete_all():
+    sql = "DELETE FROM users"
+    run_sql(sql)
