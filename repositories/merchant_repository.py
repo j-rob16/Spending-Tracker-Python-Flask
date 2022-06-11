@@ -8,6 +8,23 @@ def save(merchant):
     merchant.id = results[0]['id']
     return merchant
 
+def select_all():
+    merchants = []
+    sql = "SELECT * FROM merchants"
+    results = run_sql(sql)
+    for row in results:
+        merchant = Merchant(row['name'], row['id'])
+        merchants.add(merchant)
+    return merchants
+
+def select(id):
+    merchant = None
+    sql = "SELECT * FROM merchants WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    if result is not None:
+        merchant = Merchant(result['name'], result['id'])
+
 def delete_all():
     sql = "DELETE FROM merchants"
     run_sql(sql)

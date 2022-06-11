@@ -8,6 +8,24 @@ def save(transaction):
     transaction.id = results[0]['id']
     return transaction
 
+def select_all():
+    transactions = []
+    sql = "SELECT * FROM transactions"
+    results = run_sql(sql)
+    for row in results:
+        transaction = Transaction(row['product_id'], row['user_id'], row['merchant_id'], row['tag_id'], row['id'])
+        transactions.append(transaction)
+    return transactions
+
+def select(id):
+    transaction = None
+    sql = "SELECT * FROM transactions WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    if result is not None:
+        transaction = Transaction(result['product_id'], result['user_id'], result['merchant_id'], result['tag_id'], result['id'])
+    return transaction
+
 def delete_all():
     sql = "DELETE FROM transactions"
     run_sql(sql)

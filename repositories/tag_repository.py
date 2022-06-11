@@ -8,6 +8,24 @@ def save(tag):
     tag.id = results[0]['id']
     return tag
 
+def select_all():
+    tags = []
+    sql = "SELECT * FROM tags"
+    results = run_sql(sql)
+    for row in results:
+        tag = Tag(row['category'], row['id'])
+        tags.append(tag)
+    return tags
+
+def select(id):
+    tag = None
+    sql = "SELECT * FROM tags WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    if result is not None:
+        tag = Tag(result['category'], result['id'])
+    return tag
+
 def delete_all():
     sql = "DELETE FROM tags"
     run_sql(sql)
