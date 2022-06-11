@@ -11,5 +11,5 @@ class TestProduct(unittest.TestCase):
         self.assertEqual('Groceries', self.product.name)
 
     def test_product_has_price(self):
-        self.assertEqual(50)
+        self.assertEqual(50, self.product.price)
         
