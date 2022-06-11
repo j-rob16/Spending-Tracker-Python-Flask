@@ -1,13 +1,12 @@
 class Transaction:
 
-    def __init__(self, amount, product, payer, payee, tag, id=None):
-        self.amount = amount
+    def __init__(self, product, user, merchant, tag, id=None):
         self.product = product
-        self.payer = payer
-        self.payee = payee
+        self.user = user
+        self.merchant = merchant
         self.id = id
         self.tag = tag
 
     def money_transfer(self):
-        self.payer.pay_for_goods(self.amount)
+        self.user.pay_for_goods(self.product.price)
         # use many to many db HERE to update totals from totals repo

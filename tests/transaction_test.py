@@ -12,21 +12,21 @@ class TestTransaction(unittest.TestCase):
         self.merchant = Merchant('Tesco')
         self.tag = Tag('Groceries')
         self.product = Product('Vegetables', 20)
-        self.transaction = Transaction(self.product.price, self.product, self.user, self.merchant, self.tag)
+        self.transaction = Transaction(self.product, self.user, self.merchant, self.tag)
 
     def test_transaction_has_price(self):
-        self.assertEqual(20, self.transaction.amount)
+        self.assertEqual(20, self.transaction.product.price)
 
     def test_transaction_has_product(self):
         self.assertEqual('Vegetables', self.transaction.product.name)
 
     def test_transaction_has_payer(self):
-        self.assertEqual('James', self.transaction.payer.first_name)
-        self.assertEqual('Rob', self.transaction.payer.last_name)
-        self.assertEqual(28, self.transaction.payer.age)
+        self.assertEqual('James', self.transaction.user.first_name)
+        self.assertEqual('Rob', self.transaction.user.last_name)
+        self.assertEqual(28, self.transaction.user.age)
 
     def test_transaction_has_merchant(self):
-        self.assertEqual('Tesco', self.transaction.payee.name)
+        self.assertEqual('Tesco', self.transaction.merchant.name)
 
     def test_transaction_has_tag(self):
         self.assertEqual('Groceries', self.transaction.tag.category)
