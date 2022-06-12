@@ -18,3 +18,15 @@ class TestUser(unittest.TestCase):
 
     def test_user_has_wallet(self):
         self.assertEqual(200, self.user.wallet)
+
+    def test_update_first_name(self):
+        self.user.update_first_name('Jack')
+        self.assertEqual('Jack', self.user.first_name)
+
+    def test_update_last_name(self):
+        self.user.update_last_name('Smith')
+        self.assertEqual('Smith', self.user.last_name)
+
+    def test_add_to_wallet(self):
+        self.user.add_to_wallet(100)
+        self.assertEqual(300, self.user.wallet)

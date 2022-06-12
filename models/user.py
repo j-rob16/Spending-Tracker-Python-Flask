@@ -10,3 +10,12 @@ class User:
     def pay_for_goods(self, amount):
         self.wallet -= amount
         # call update from user repo here
+
+    def update_first_name(self, name):
+        self.first_name = name
+
+    def update_last_name(self, name):
+        self.last_name = name
+
+    def add_to_wallet(self, charge):
+        self.wallet += charge

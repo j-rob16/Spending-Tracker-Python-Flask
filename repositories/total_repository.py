@@ -26,6 +26,11 @@ def select(id):
         total = Total(result['total_paid_to_merchant'], result['user_id'], result['merchant_id'])
     return total
 
+def update(total):
+    sql = "UPDATE totals SET ( total_paid_to_merchant, user_id, merchant_id ) VALUES ( %s, %s, %s )WHERE id = %s"
+    values = [total.total_paid_to_merchant, total.user_id, total.merchant_id, total.id]
+    run_sql(sql, values)
+
 def delete_all():
     sql = "DELETE FROM totals"
     run_sql(sql)
