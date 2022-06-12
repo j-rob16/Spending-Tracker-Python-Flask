@@ -26,6 +26,11 @@ def select(id):
         transaction = Transaction(result['product_id'], result['user_id'], result['merchant_id'], result['tag_id'], result['id'])
     return transaction
 
+def update(transaction):
+    sql = "UPDATE transactions SET ( product_id, user_id, merchant_id, tag_id ) VALUES ( %s, %s, %s, %s ) WHERE id = %s"
+    values = [transaction.product_id, transaction.user_id, transaction.merchant_id, transaction.tag_id]
+    run_sql(sql, values)
+
 def delete_all():
     sql = "DELETE FROM transactions"
     run_sql(sql)

@@ -14,3 +14,17 @@ def users():
 def show_account(id):
     user = user_repo.select(id)
     return render_template('users/account.html', user=user)
+
+@users_blueprint.route('/users/new')
+def new_user():
+    return render_template('/users/new.html')
+
+@users_blueprint.route('/users', methods=['post'])
+def create_user():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    age = request.form['age']
+    wallet = request.form['wallet']
+    user = User(first_name, last_name, age, wallet)
+    user_repo.save(user)
+    return redirect('/users')
