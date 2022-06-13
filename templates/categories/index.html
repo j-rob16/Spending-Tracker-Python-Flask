@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Categories:</h1>
+
+{% for tag in tags %}
+<h3>{{ tag.category }}</h3>
+{% endfor %}
+
+
+{% endblock content %}
