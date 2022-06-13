@@ -21,7 +21,7 @@ def select(id):
     transaction = None
     sql = "SELECT * FROM transactions WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
     if result is not None:
         transaction = Transaction(result['product_id'], result['user_id'], result['merchant_id'], result['tag_id'], result['id'])
     return transaction

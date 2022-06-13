@@ -21,7 +21,7 @@ def select(id):
     product = None
     sql = "SELECT * FROM products WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
     if result is not None:
         product = Product(result['name'], result['price'], result['id'])
     return product

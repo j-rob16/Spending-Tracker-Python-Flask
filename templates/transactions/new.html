@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/transactions" method="post">
+    
+
+    <div>
+        <label for="product">Product:</label>
+        <select name="product_id" id="product">
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="user">User:</label>
+        <select name="user_id" id="user">
+            {% for user in users %}
+            <option value="{{user.id}}">{{ user.first_name }} {{ user.last_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="merchant">Merchant:</label>
+        <select name="merchant_id" id="merchant">
+            {% for merchant in merchants %}
+            <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="tag">Category:</label>
+        <select name="tag_id" id="tag">
+            {% for tag in tags %}
+            <option value="{{ tag.id }}">{{ tag.category }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Add Transaction</button>
+
+</form>
+
+{% endblock content %}

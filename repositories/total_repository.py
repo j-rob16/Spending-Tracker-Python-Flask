@@ -21,7 +21,7 @@ def select(id):
     total = None
     sql = "SELECT * FROM totals WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
     if result is not None: 
         total = Total(result['total_paid_to_merchant'], result['user_id'], result['merchant_id'])
     return total
