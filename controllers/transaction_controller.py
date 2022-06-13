@@ -10,7 +10,7 @@ import repositories.user_repository as user_repo
 transactions_blueprint = Blueprint('transactions', __name__)
 
 @transactions_blueprint.route('/transactions')
-def transactions():
+def transactions_home():
     all_transactions = transaction_repo.select_all()
     return render_template('/transactions/index.html', transactions=all_transactions)
 
