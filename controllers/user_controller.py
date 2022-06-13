@@ -28,3 +28,18 @@ def create_user():
     user = User(first_name, last_name, age, wallet)
     user_repo.save(user)
     return redirect('/users')
+
+@users_blueprint.route('/users/<id>/edit')
+def edit_user(id):
+    user = user_repo.select(id)
+    return render_template('users/edit.html', user=user)
+
+@users_blueprint.route('/users/<id>', methods=['post'])
+def update_user(id):
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    age = request.form['age']
+    wallet = request.form['wallet']
+    user = User(first_name, last_name, age, wallet, id)
+    user_repo.update(user)
+    return redirect('/users')

@@ -7,6 +7,8 @@
 {% for merchant in merchants %}
 
 <h3>{{ merchant.name }}</h3>
+<p><a href="/merchants/{{ merchant.id }}">View</a></p>
+<p><a href="/merchants/{{ merchant.id }}/edit">Edit</a></p>
 
 {% endfor %}
 

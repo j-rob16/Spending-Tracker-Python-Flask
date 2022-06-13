@@ -27,3 +27,15 @@ def create_merchant():
     tag = Tag(name)
     tag_repo.save(tag)
     return redirect('/categories')
+
+@tags_blueprint.route('/categories/<id>/edit')
+def edit_tag(id):
+    tag = tag_repo.select(id)
+    return render_template('/categories/edit.html', tag=tag)
+
+@tags_blueprint.route('/categories/<id>', methods=['post'])
+def update_tag(id):
+    category = request.form['category']
+    tag = Tag(category, id)
+    tag_repo.update(tag)
+    return redirect('/categories')

@@ -17,7 +17,7 @@ def transactions():
 @transactions_blueprint.route('/transactions/<id>')
 def show_transaction(id):
     transaction = transaction_repo.select(id)
-    return render_template('/transactions/transaction.html')
+    return render_template('/transactions/transaction.html', transaction=transaction)
 
 @transactions_blueprint.route('/transactions/new')
 def new_transaction():
@@ -40,4 +40,27 @@ def create_transaction():
     transaction = Transaction(product, user, merchant, tag)
     transaction_repo.save(transaction)
     # add to total table
+    return redirect('/transactions')
+
+@transactions_blueprint.route('/transactions/<id>/edit')
+def edit_transaction(id):
+    products = product_repo.select_all()
+    merchants = merchant_repo.select_all()
+    tags = tag_repo.select_all()
+    users = user_repo.select_all()
+    transaction = transaction_repo.select(id)
+    return render_template('/transactions/edit.html', products=products, merchants=merchants, tags=tags, users=users, transaction=transaction)
+
+@transactions_blueprint.route('/transactions/<id>', methods=['post'])
+def update_transaction(id):
+    product_id = request.form['product_id']
+    product = product_repo.select(product_id)
+    merchant_id = request.form['merchant_id']
+    merchant = merchant_repo.select(merchant_id)
+    user_id = request.form['user_id']
+    user = user_repo.select(user_id)
+    tag_id = request.form['tag_id']
+    tag = tag_repo.select(tag_id)
+    transaction = Transaction(product, user, merchant, tag, id)
+    transaction_repo.update(transaction)
     return redirect('/transactions')

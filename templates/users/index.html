@@ -11,6 +11,8 @@
         <li>Last Name: {{ user.last_name }}</li>
         <li>Age: {{ user.age }}</li>
         <li>Wallet: {{ user.wallet }}</li>
+        <p><a href="/users/{{ user.id }}">View</a></p>
+        <p><a href="/users/{{ user.id }}/edit">Edit</a></p>
     </ul>
     {% endfor %}
 </div>

@@ -6,7 +6,15 @@
 
 <ul>
     {% for transaction in transactions %}
-    <li>1</li>    
+    <li>
+        <p>{{ transaction.product.name }}</p>
+        <hr>
+        <p>{{ transaction.product.price }}</p>
+        <p>{{ transaction.user.first_name }} {{ transaction.user.last_name }}</p>
+        <p>{{ transaction.merchant.name }}</p>
+        <p><a href="/transactions/{{transaction.id}}">View</a></p>
+        <p><a href="/transactions/{{transaction.id}}/edit">Edit</a></p>
+    </li>
     {% endfor %}
 </ul>
 

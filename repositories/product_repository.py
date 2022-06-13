@@ -27,7 +27,7 @@ def select(id):
     return product
 
 def update(product):
-    sql = "UPDATE products SET ( name, price ) VALUES ( %s, %s ) WHERE id = %s"
+    sql = "UPDATE products SET ( name, price ) = ( %s, %s ) WHERE id = %s"
     values = [product.name, product.price, product.id]
     run_sql(sql, values)
 
