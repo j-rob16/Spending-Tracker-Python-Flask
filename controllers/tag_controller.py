@@ -16,7 +16,7 @@ def categories():
 @tags_blueprint.route('/categories/<id>')
 def show_category(id):
     tag = tag_repo.select(id)
-    total = transaction_repo.get_tag_total(tag)
+    total = transaction_repo.get_tag_total(id)
     return render_template('/categories/category.html', tag=tag, total=total)
 
 @tags_blueprint.route('/categories/new')

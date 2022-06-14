@@ -27,6 +27,7 @@
                 <th>Item</th>
                 <th>Merchant</th>
                 <th>Category</th>
+                <th>Date</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -38,6 +39,7 @@
                 <td>{{ transaction.product.name }}</td>
                 <td>{{ transaction.merchant.name }}</td>
                 <td>{{ transaction.tag.category }}</td>
+                <td>{{ transaction.date }}</td>
                 <td><a class="black-text" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
                 <td><a class="black-text" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>
             </tr>

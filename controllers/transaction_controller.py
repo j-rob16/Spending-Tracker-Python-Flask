@@ -39,7 +39,8 @@ def create_transaction():
     user = user_repo.select(user_id)
     tag_id = request.form['tag_id']
     tag = tag_repo.select(tag_id)
-    transaction = Transaction(price, product, user, merchant, tag)
+    date = request.form['date']
+    transaction = Transaction(price, product, user, merchant, tag, date)
     transaction_repo.save(transaction)
     # add to total table
     return redirect('/transactions')

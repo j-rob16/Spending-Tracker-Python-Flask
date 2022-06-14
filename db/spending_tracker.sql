@@ -43,6 +43,7 @@ CREATE TABLE transactions (
     user_id INT REFERENCES users(id),
     merchant_id INT REFERENCES merchants(id),
     price INT,
+    date DATE,
     tag_id INT REFERENCES tags(id)
 );
 

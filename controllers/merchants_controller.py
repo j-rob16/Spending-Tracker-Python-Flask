@@ -19,7 +19,7 @@ def merchants():
 @merchants_blueprint.route('/merchants/<id>')
 def show_merchant(id):
     merchant = merchant_repo.select(id)
-    total = transaction_repo.get_merchant_total(merchant)
+    total = transaction_repo.get_merchant_total(id)
     return render_template('/merchants/shop.html', merchant=merchant, total=total)
 
 @merchants_blueprint.route('/merchants/new')

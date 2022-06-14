@@ -1,12 +1,13 @@
 class Transaction:
 
-    def __init__(self, price, product, user, merchant, tag, id=None):
+    def __init__(self, price, product, user, merchant, tag, date, id=None):
         self.product = product
         self.user = user
         self.merchant = merchant
         self.id = id
         self.price = price
         self.tag = tag
+        self.date = date
 
     def money_transfer(self):
         self.user.pay_for_goods(self.product.price)

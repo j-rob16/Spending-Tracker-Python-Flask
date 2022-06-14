@@ -1,3 +1,4 @@
+from datetime import datetime
 import pdb
 
 from models.product import Product
@@ -34,7 +35,10 @@ product_repo.save(product_1)
 tag_1 = Tag('Groceries')
 tag_repo.save(tag_1)
 
-transaction_1 = Transaction(product_1.price, product_1, user_1, merchant, tag_1)
+now = datetime.now()
+date = now.strftime('%Y-%m-%d')
+
+transaction_1 = Transaction(product_1.price, product_1, user_1, merchant, tag_1, date)
 transaction_repo.save(transaction_1)
 
 pdb.set_trace()
