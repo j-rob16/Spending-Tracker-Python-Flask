@@ -4,12 +4,61 @@
 
 <h1>Merchants</h1>
 
-{% for merchant in merchants %}
+<section>
+    
+    {% for merchant in merchants %}
 
-<h3>{{ merchant.name }}</h3>
-<p><a href="/merchants/{{ merchant.id }}">View</a></p>
-<p><a href="/merchants/{{ merchant.id }}/edit">Edit</a></p>
+    <p align="center"><a href="/merchants/{{ merchant.id }}">
+        <button>
+            {{ merchant.name }}
+        </button></a>
+    </p>
+    {% endfor %}
+    <p align="center"><a href="/merchants/new">
+            <button>
+                Add New Merchant
+            </button></a>
+    </p>
+</section>
 
-{% endfor %}
+<h1>Products</h1>
+
+<section>
+
+    {% for product in products %}
+
+    <p align="center"><a href="/products/{{ product.id }}">
+            <button>
+                {{ product.name }}
+            </button></a>
+    </p>
+    {% endfor %}
+    <p align="center"><a href="/products/new">
+            <button>
+                Add New Product
+            </button></a>
+    </p>
+</section>
+
+
+<h1>Categories</h1>
+
+<section>
+
+    {% for tag in all_tags %}
+
+    <p align="center"><a href="/categories/{{ tag.id }}">
+            <button>
+                {{ tag.category }}
+            </button></a>
+    </p>
+    {% endfor %}
+    <p align="center"><a href="/categories/new">
+            <button>
+                Add New Category
+            </button></a>
+    </p>
+</section>
+
 
 {% endblock content %}

@@ -79,19 +79,20 @@ def get_user_total(user):
 def get_merchant_total(merchant):
     sql = "SELECT SUM ( price ) FROM transactions WHERE id = %s"
     values = [merchant.id]
-    sum = run_sql(sql, values)
+    sum = run_sql(sql, values)[0][0]
     total = Total(sum, None, merchant)
     return total
 
 def get_tag_total(tag):
     sql = "SELECT SUM ( price ) FROM transactions WHERE id = %s"
     values = [tag.id]
-    sum = run_sql(sql, values)
+    sum = run_sql(sql, values)[0][0]
     total = Total(sum, None, None, tag)
     return total
 
 def get_product_total(product):
     sql = "SELECT SUM ( price ) FROM transactions WHERE id = %s"
     values = [product.id]
-    sum = run_sql(sql, values)
+    sum = run_sql(sql, values)[0][0]
     total = Total(sum, None, None, None, product)
+    return total

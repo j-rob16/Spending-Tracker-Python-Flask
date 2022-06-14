@@ -7,6 +7,14 @@
     </div>
 
     <div>
+        <p align="center"><a href="/transactions/new">
+                <button>
+                    Add a Transaction
+                </button></a>
+        </p>
+    </div>
+
+    <div>
         <h2>Total Spent:</h2>
         <p>{{ total.total_paid }}</p>
     </div>
@@ -19,6 +27,8 @@
                 <th>Item</th>
                 <th>Merchant</th>
                 <th>Category</th>
+                <th></th>
+                <th></th>
             </tr>
 
             {% for transaction in transactions %}
@@ -28,6 +38,8 @@
                 <td>{{ transaction.product.name }}</td>
                 <td>{{ transaction.merchant.name }}</td>
                 <td>{{ transaction.tag.category }}</td>
+                <td><a class="black-text" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
+                <td><a class="black-text" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>
             </tr>
             {% endfor %}
         </table>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/products/{{ product.id }}" method="post">
+
+    <div>
+        <label for="name">Name of Product:</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required autofocus>
+    </div>
+
+    <div>
+        <label for="price">Price of Product:</label>
+        <input type="text" id="price" name="price" value="{{ product.price }}" required autofocus>
+    </div>
+
+    <button type="submit">Update Merchant</button>
+
+</form>
+
+{% endblock %}

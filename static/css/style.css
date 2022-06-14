@@ -2,6 +2,10 @@
     color: whitesmoke;
 }
 
+.black-text {
+    color: black;
+}
+
 body {
     background-color: #4ca1af;
     background-size: cover;
@@ -71,6 +75,10 @@ tr:nth-child(odd) {
 
 th {
     background-color: #dcdc37;
+}
+
+td > a {
+    color: black
 }
 
 /* USER BUTTON STYLE */

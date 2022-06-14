@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>{{ product.name }}</h3>
+<p>{{ product.price }}</p>
+<h2>Total spent on this product - {{ total.total_paid }}</h2>
+
+<p align="center"><a href="/products/{{ product.id }}/edit">
+    <button>
+        Edit {{ product.name }}
+    </button></a>
+</p>
+
+{% endblock content %}

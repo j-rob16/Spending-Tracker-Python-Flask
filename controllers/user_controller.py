@@ -43,3 +43,8 @@ def update_user(id):
     user = User(first_name, last_name, age, wallet, id)
     user_repo.update(user)
     return redirect('/users')
+
+@users_blueprint.route('/users/<id>/delete')
+def delete_user(id):
+    user_repo.delete(id)
+    return redirect('/users')
