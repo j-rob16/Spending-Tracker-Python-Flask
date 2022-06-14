@@ -14,11 +14,15 @@ body {
 }
 
 header {
+    background-color: #283593;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid black 2px;
-    padding: 0 10%;
+    border-bottom: solid black 1px;
+    padding: 0 45px;
+    margin: 0;
+    grid-area: header;
 }
 
 header > nav > ul {
@@ -32,7 +36,18 @@ header > nav > ul > li {
 }
 
 main {
+    padding: 60px 45px;
     display: flex;
+    justify-content: center;
+}
+
+main > div {
+    max-width: 760px;
+}
+
+main > h1 {
+    font-weight: normal;
+    /* font-size: 4rem; */
 }
 
 section > div {
@@ -40,13 +55,19 @@ section > div {
     padding: 10px 20px;
 }
 
+li > a {
+    display: block;
+    transition: all 0.5s ease-out;
+}
+
 a, a:link, a:visited {
       color: whitesmoke;
       text-decoration: none;
   }
 
-a:hover, a:active, a:focus {
+ a:hover, a:active, a:focus {
       color: #dcdc37;
+      transform: rotate(6deg);
   }
 
 
