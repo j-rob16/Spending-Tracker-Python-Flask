@@ -42,6 +42,7 @@ CREATE TABLE transactions (
     product_id INT REFERENCES products(id), 
     user_id INT REFERENCES users(id),
     merchant_id INT REFERENCES merchants(id),
+    price INT,
     tag_id INT REFERENCES tags(id)
 );
 

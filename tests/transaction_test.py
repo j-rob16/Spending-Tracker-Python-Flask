@@ -12,10 +12,10 @@ class TestTransaction(unittest.TestCase):
         self.merchant = Merchant('Tesco')
         self.tag = Tag('Groceries')
         self.product = Product('Vegetables', 20)
-        self.transaction = Transaction(self.product, self.user, self.merchant, self.tag)
+        self.transaction = Transaction(self.product.price, self.product, self.user, self.merchant, self.tag)
 
     def test_transaction_has_price(self):
-        self.assertEqual(20, self.transaction.product.price)
+        self.assertEqual(20, self.transaction.price)
 
     def test_transaction_has_product(self):
         self.assertEqual('Vegetables', self.transaction.product.name)
@@ -34,3 +34,5 @@ class TestTransaction(unittest.TestCase):
     def test_user_pays_for_product(self):
         self.transaction.money_transfer()
         self.assertEqual(180, self.user.wallet)
+
+

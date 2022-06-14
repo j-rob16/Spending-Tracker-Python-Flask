@@ -11,8 +11,9 @@ transactions_blueprint = Blueprint('transactions', __name__)
 
 @transactions_blueprint.route('/transactions')
 def transactions_home():
+    total = transaction_repo.get_total()
     all_transactions = transaction_repo.select_all()
-    return render_template('/transactions/index.html', transactions=all_transactions)
+    return render_template('/transactions/index.html', transactions=all_transactions, total=total)
 
 @transactions_blueprint.route('/transactions/<id>')
 def show_transaction(id):
@@ -31,13 +32,14 @@ def new_transaction():
 def create_transaction():
     product_id = request.form['product_id']
     product = product_repo.select(product_id)
+    price = product.price
     merchant_id = request.form['merchant_id']
     merchant = merchant_repo.select(merchant_id)
     user_id = request.form['user_id']
     user = user_repo.select(user_id)
     tag_id = request.form['tag_id']
     tag = tag_repo.select(tag_id)
-    transaction = Transaction(product, user, merchant, tag)
+    transaction = Transaction(price, product, user, merchant, tag)
     transaction_repo.save(transaction)
     # add to total table
     return redirect('/transactions')

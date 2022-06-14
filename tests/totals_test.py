@@ -11,7 +11,7 @@ class TestTotal(unittest.TestCase):
         self.total = Total(1000, self.user, self.merchant)
 
     def test_total_has_total_paid_to_merchant(self):
-        self.assertEqual(1000, self.total.total_paid_to_merchant)
+        self.assertEqual(1000, self.total.total_paid)
 
     def test_total_has_user(self):
         self.assertEqual('James', self.total.user.first_name)

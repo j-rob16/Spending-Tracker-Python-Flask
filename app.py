@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template
 
 from controllers.merchants_controller import merchants_blueprint
 from controllers.tag_controller import tags_blueprint
 from controllers.transaction_controller import transactions_blueprint
 from controllers.user_controller import users_blueprint
+import repositories.user_repository as user_repo
 
 
 app = Flask(__name__)

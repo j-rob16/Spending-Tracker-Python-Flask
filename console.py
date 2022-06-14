@@ -34,7 +34,7 @@ product_repo.save(product_1)
 tag_1 = Tag('Groceries')
 tag_repo.save(tag_1)
 
-transaction_1 = Transaction(product_1, user_1, merchant, tag_1)
+transaction_1 = Transaction(product_1.price, product_1, user_1, merchant, tag_1)
 transaction_repo.save(transaction_1)
 
 pdb.set_trace()
