@@ -4,6 +4,8 @@
 
 body {
     background-color: #4ca1af;
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
 }
 
@@ -20,10 +22,60 @@ header > nav > ul {
     list-style: none;
 }
 
+header > nav > ul > li {
+    padding-left: 2em;
+    justify-content: center;
+}
+
 main {
     display: flex;
 }
 
 section > div {
-    display: flex;
+    /* display: flex; */
+    padding: 10px 20px;
 }
+
+a, a:link, a:visited {
+      color: whitesmoke;
+      text-decoration: none;
+  }
+
+a:hover, a:active, a:focus {
+      color: #dcdc37;
+  }
+
+
+/* TABLE STYLE */
+
+table {
+    width: 80%;
+    border: 1px solid;
+}
+
+th, td {
+    /* border-bottom: 1px solid #ddd; */
+    padding: 2px;
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+tr:nth-child(odd) {
+    background-color: whitesmoke;
+}
+
+th {
+    background-color: #dcdc37;
+}
+
+/* USER BUTTON STYLE */
+
+/* div > p {
+    width: 20%;
+    height: 20%
+} */
