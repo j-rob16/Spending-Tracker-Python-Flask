@@ -6,9 +6,14 @@
 <h2>Total paid to merchant - {{total.total_paid}}</h2>
 
 <p align="center"><a href="/merchants/{{ merchant.id }}/edit">
-        <button>
-            Edit {{ name }}
-        </button></a>
+    <button>
+        Edit {{ merchant.name }}
+    </button></a>
+</p>
+<p align="center"><a href="/merchants/{{ merchant.id }}/delete">
+    <button>
+        Delete {{ merchant.name }}
+    </button></a>
 </p>
 
 {% endblock content %}

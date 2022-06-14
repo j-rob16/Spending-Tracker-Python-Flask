@@ -3,12 +3,19 @@
 {% block content %}
 
 <h3>{{ tag.category }}</h3>
-<h2>Total spent on this Category - {{ total.total_paid }}</h2>
 
 <p align="center"><a href="/categories/{{ tag.id }}/edit">
-        <button>
-            Edit {{ tag.category }}
-        </button></a>
+    <button>
+        Edit {{ tag.category }}
+    </button></a>
 </p>
+<p align="center"><a href="/categories/{{ tag.id }}/delete">
+    <button>
+        Delete {{ tag.category }}
+    </button></a>
+</p>
+
+<h2>Total spent on {{ tag.category }}{{ total.total_paid }}</h2>
+
 
 {% endblock content %}
