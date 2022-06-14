@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <main>
+    <header class="white-text">
         <h1>Spending Tracker</h1>
         <nav>
             <ul>
@@ -22,11 +22,13 @@
                 </li>
             </ul>
         </nav>
-        <section>
-            {% block content %}
 
-            {% endblock%}
-        </section>
+    </header>
+
+    <main>
+        {% block content %}
+    
+        {% endblock%}
     </main>
 </body>
 

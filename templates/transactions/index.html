@@ -1,22 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
+    <div>
+        <h1>Transactions</h1>
+    </div>
 
-<h1>Transactions:</h1>
-{{ total.total_paid }}
+    <div>
+        <h2>Total Spent:</h2>
+        <p>{{ total.total_paid }}</p>
+    </div>
 
-<ul>
-    {% for transaction in transactions %}
-    <li>
-        <p>{{ transaction.product.name }}</p>
-        <hr>
-        <p>{{ transaction.product.price }}</p>
-        <p>{{ transaction.user.first_name }} {{ transaction.user.last_name }}</p>
-        <p>{{ transaction.merchant.name }}</p>
-        <p><a href="/transactions/{{transaction.id}}">View</a></p>
-        <p><a href="/transactions/{{transaction.id}}/edit">Edit</a></p>
-    </li>
-    {% endfor %}
-</ul>
+    <div>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Price</th>
+                <th>Item</th>
+                <th>Merchant</th>
+                <th>Category</th>
+            </tr>
 
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.user.first_name }} {{ transaction.user.last_name }}</td>
+                <td>£ {{ transaction.price }}</td>
+                <td>{{ transaction.product.name }}</td>
+                <td>{{ transaction.merchant.name }}</td>
+                <td>{{ transaction.tag.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</section>
 {% endblock content %}

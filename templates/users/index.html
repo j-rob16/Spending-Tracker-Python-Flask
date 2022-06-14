@@ -6,15 +6,19 @@
 
 <div>
     {% for user in users %}
-    <ul>
-        <li>First Name: {{ user.first_name }}</li>
-        <li>Last Name: {{ user.last_name }}</li>
-        <li>Age: {{ user.age }}</li>
-        <li>Wallet: {{ user.wallet }}</li>
-        <p><a href="/users/{{ user.id }}">View</a></p>
-        <p><a href="/users/{{ user.id }}/edit">Edit</a></p>
-    </ul>
+    <p align="center"><a href="/users/{{ user.id }}">
+        <button>
+            {{ user.first_name }} {{ user.last_name }}<br>
+            Age: {{ user.age }}<br>
+            Wallet: {{ user.wallet }}
+        </button></a>
+    </p>
     {% endfor %}
+        <p align="center"><a href="/users/new">
+        <button>
+            Add New User
+        </button></a>
+    </p>
 </div>
 
 {% endblock content %}

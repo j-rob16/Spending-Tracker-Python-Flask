@@ -1,0 +1,29 @@
+.white-text {
+    color: whitesmoke;
+}
+
+body {
+    background-color: #4ca1af;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid black 2px;
+    padding: 0 10%;
+}
+
+header > nav > ul {
+    display: flex;
+    list-style: none;
+}
+
+main {
+    display: flex;
+}
+
+section > div {
+    display: flex;
+}
