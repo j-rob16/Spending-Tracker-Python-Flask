@@ -2,24 +2,25 @@
 
 {% block content %}
 
-<h1>Users:</h1>
-<br>
+<section class="users-main">
 
+    <div class="users-div">
 
-<section class="users">
-    <div class="users-inner">
-
-    {% for user in users %}
-        <div class="featured-user">
-            <a class="button" href="/users/{{ user.id }}">
-                {{ user.first_name }} {{ user.last_name }}<br>
-                Age: {{ user.age }}<br>
-                Wallet: {{ user.wallet }}
-            </a>
-        </div>
-    {% endfor %}
-        <div class="featured-user">
-            <a href="/users/new" class="button">
+        <section class="row-div">
+            <h1>Users</h1>
+                <div class="merchant-items">
+                    {% for user in users %}
+                    <a class="button" href="/users/{{ user.id }}">
+                        {{ user.first_name }} {{ user.last_name }}<br>
+                        Age: {{ user.age }}<br>
+                        Wallet: {{ user.wallet }}
+                    </a>
+                    {% endfor %}
+                </div>
+        </section>
+        <br>
+        <div class="add-merchant">
+            <a href="/users/new" class="table-button">
                 Add New User
             </a>
         </div>

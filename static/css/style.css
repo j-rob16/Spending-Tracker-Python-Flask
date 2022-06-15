@@ -130,17 +130,17 @@ tr:nth-child(odd) {
 
 /* USER STYLE */
 
-.users {
+.users-main {
+    height: 100vh;
     padding: 60px 45px;
 }
 
-.users-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 25%);
-    grid-column-gap: 45px;
-    grid-row-gap: 45px
+.users-div {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .featured-user {
@@ -151,7 +151,7 @@ tr:nth-child(odd) {
 /* MERCHANTS STYLE */
 
 .merchant-main{
-    height: 100vh
+    height: 100vh;
 }
 
 .merchants-div {
