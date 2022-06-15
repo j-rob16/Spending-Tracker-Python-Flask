@@ -16,4 +16,35 @@
     </button></a>
 </p>
 
+<section class="table-body">
+    <div class="table-div">
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Price</th>
+                <th>Item</th>
+                <th>Merchant</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.user.first_name }} {{ transaction.user.last_name }}</td>
+                <td>£ {{ transaction.price }}</td>
+                <td>{{ transaction.product.name }}</td>
+                <td>{{ transaction.merchant.name }}</td>
+                <td>{{ transaction.tag.category }}</td>
+                <td>{{ transaction.date }}</td>
+                <td><a class="table-button" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
+                <td><a class="table-button" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</section>
+
 {% endblock content %}

@@ -78,12 +78,42 @@ def get_user_total(user):
     total = Total(sum)
     return total
 
+def get_user_transactions(user):
+    transactions = []
+    sql = "SELECT * FROM transactions WHERE user_id = %s"
+    values = [user.id]
+    results = run_sql(sql, values)
+    for row in results:
+        product = product_repo.select(row['product_id'])
+        price = product.price
+        # user = user_repo.select(row['user_id'])
+        merchant = merchant_repo.select(row['merchant_id'])
+        tag = tag_repo.select(row['tag_id'])
+        transaction = Transaction(price, product, user, merchant, tag, row['date'], row['id'])
+        transactions.append(transaction)
+    return transactions
+
 def get_merchant_total(id):
     sql = "SELECT SUM ( price ) FROM transactions WHERE merchant_id = %s"
     values = [id]
     sum = run_sql(sql, values)[0][0]
     total = Total(sum)
-    return total
+    return total 
+
+def get_merchant_transactions(merchant):
+    transactions = []
+    sql = "SELECT * FROM transactions WHERE merchant_id = %s"
+    values = [merchant.id]
+    results = run_sql(sql, values)
+    for row in results:
+        product = product_repo.select(row['product_id'])
+        price = product.price
+        user = user_repo.select(row['user_id'])
+        # merchant = merchant_repo.select(row['merchant_id'])
+        tag = tag_repo.select(row['tag_id'])
+        transaction = Transaction(price, product, user, merchant, tag, row['date'], row['id'])
+        transactions.append(transaction)
+    return transactions
 
 def get_tag_total(id):
     sql = "SELECT SUM ( price ) FROM transactions WHERE tag_id = %s"
@@ -92,9 +122,39 @@ def get_tag_total(id):
     total = Total(sum)
     return total
 
+def get_tag_transactions(tag):
+    transactions = []
+    sql = "SELECT * FROM transactions WHERE tag_id = %s"
+    values = [tag.id]
+    results = run_sql(sql, values)
+    for row in results:
+        product = product_repo.select(row['product_id'])
+        price = product.price
+        user = user_repo.select(row['user_id'])
+        merchant = merchant_repo.select(row['merchant_id'])
+        # tag = tag_repo.select(row['tag_id'])
+        transaction = Transaction(price, product, user, merchant, tag, row['date'], row['id'])
+        transactions.append(transaction)
+    return transactions
+
 def get_product_total(id):
     sql = "SELECT SUM ( price ) FROM transactions WHERE product_id = %s"
     values = [id]
     sum = run_sql(sql, values)[0][0]
     total = Total(sum)
     return total
+
+def get_product_transactions(product):
+    transactions = []
+    sql = "SELECT * FROM transactions WHERE product_id = %s"
+    values = [product.id]
+    results = run_sql(sql, values)
+    for row in results:
+        # product = product_repo.select(row['product_id'])
+        price = product.price
+        user = user_repo.select(row['user_id'])
+        merchant = merchant_repo.select(row['merchant_id'])
+        tag = tag_repo.select(row['tag_id'])
+        transaction = Transaction(price, product, user, merchant, tag, row['date'], row['id'])
+        transactions.append(transaction)
+    return transactions

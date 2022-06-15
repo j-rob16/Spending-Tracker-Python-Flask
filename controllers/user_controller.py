@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect
 from flask import Blueprint
 from models.user import User
 import repositories.user_repository as user_repo
+import repositories.transaction_repository as transaction_repo
 
 users_blueprint = Blueprint('users', __name__)
 
@@ -13,7 +14,9 @@ def users():
 @users_blueprint.route('/users/<id>')
 def show_account(id):
     user = user_repo.select(id)
-    return render_template('users/account.html', user=user)
+    total = transaction_repo.get_user_total(user)
+    transactions = transaction_repo.get_user_transactions(user)
+    return render_template('users/account.html', user=user, total=total, transactions=transactions)
 
 @users_blueprint.route('/users/new')
 def new_user():

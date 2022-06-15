@@ -46,9 +46,3 @@ CREATE TABLE transactions (
     date DATE,
     tag_id INT REFERENCES tags(id)
 );
-
-CREATE TABLE stocks (
-    id SERIAL PRIMARY KEY,
-    merchant_id INT REFERENCES merchants(id),
-    product_id INT REFERENCES products(id)
-);

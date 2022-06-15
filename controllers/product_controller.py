@@ -16,8 +16,9 @@ def products():
 def show_product(id):
     product = product_repo.select(id)
     total = transaction_repo.get_product_total(id)
+    transactions = transaction_repo.get_product_transactions(product)
     print(total.total_paid)
-    return render_template('/products/product.html', product=product, total=total)
+    return render_template('/products/product.html', product=product, total=total, transactions=transactions)
 
 @products_blueprint.route('/products/new')
 def new_product():

@@ -1,20 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
+<section class="merchants-div">
     <div>
         <h1>Transactions</h1>
     </div>
 
-    <div>
-        <a href="/transactions/new" class="table-button">
-            Add a Transaction
-        </a>
-    </div>
+    <div class="">
+        <div>
+            <a href="/transactions/new" class="table-button">
+                Add a Transaction
+            </a>
+        </div>
 
-    <div>
-        <h2>Total Spent:</h2>
-        <p>{{ total.total_paid }}</p>
+        <div>
+            <h2>Total Spent:</h2>
+            <p>{{ total.total_paid }}</p>
+        </div>
     </div>
 </section>
 
