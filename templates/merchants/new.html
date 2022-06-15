@@ -2,15 +2,23 @@
 
 {% block content %}
 
-<form action="/merchants" method="post">
 
-    <div>
-        <label for="name">Name of Merchant:</label>
-        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-    </div>
+<div class="form-body">
+    <div class="form-container">
+        <div class="form-title">New Merchant</div>
 
-    <button type="submit">Add Merchant</button>
+        <form action="/merchants" method="post">
 
-</form>
+            <div class="form-details">
+                <div class="form-input-box">
+                    <span class="details"><label for="name">Name of Merchant:</label></span>
+                    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+                </div>
+            </div>
+
+            <button type="submit" class="form-button">Add Merchant</button>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

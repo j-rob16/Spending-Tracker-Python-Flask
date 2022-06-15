@@ -2,15 +2,21 @@
 
 {% block content %}
 
-<form action="/categories" method="post">
+<div class="form-body">
+    <div class="form-container">
+        <div class="form-title">New Category</div>
 
-    <div>
-        <label for="category">Name of Category:</label>
-        <input type="text" id="category" name="category" placeholder="Category" required autofocus>
+        <form action="/categories" method="post">
+        
+        <div class="form-details">
+            <div class="form-input-box">
+                <span class="details"><label for="category">Name of Category:</label></span>
+                <input type="text" id="category" name="category" placeholder="Category" required autofocus>
+            </div>
+        </div>
+            <button type="submit" class="form-button">Create Category</button>
+        </form>
     </div>
-
-    <button type="submit">Create Category</button>
-
-</form>
+</div>
 
 {% endblock %}

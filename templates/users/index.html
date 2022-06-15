@@ -3,22 +3,27 @@
 {% block content %}
 
 <h1>Users:</h1>
+<br>
 
-<div>
+
+<section class="users">
+    <div class="users-inner">
+
     {% for user in users %}
-    <p align="center"><a href="/users/{{ user.id }}">
-        <button>
-            {{ user.first_name }} {{ user.last_name }}<br>
-            Age: {{ user.age }}<br>
-            Wallet: {{ user.wallet }}
-        </button></a>
-    </p>
+        <div class="featured-user">
+            <a class="button" href="/users/{{ user.id }}">
+                {{ user.first_name }} {{ user.last_name }}<br>
+                Age: {{ user.age }}<br>
+                Wallet: {{ user.wallet }}
+            </a>
+        </div>
     {% endfor %}
-    <p align="center"><a href="/users/new">
-        <button>
-            Add New User
-        </button></a>
-    </p>
-</div>
+        <div class="featured-user">
+            <a href="/users/new" class="button">
+                Add New User
+            </a>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}

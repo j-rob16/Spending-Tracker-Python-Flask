@@ -4,61 +4,60 @@
 
 <h1>Merchants</h1>
 
-<section>
-    
-    {% for merchant in merchants %}
+<div class="merchants-div">
 
-    <p align="center"><a href="/merchants/{{ merchant.id }}">
-        <button>
-            {{ merchant.name }}
-        </button></a>
-    </p>
-    {% endfor %}
-    <p align="center"><a href="/merchants/new">
-            <button>
+        <section class="row-div">
+
+            <div>
+                {% for merchant in merchants %}
+                <a href="/merchants/{{ merchant.id }}" class="button">
+                    {{ merchant.name }}
+                </a>
+                {% endfor %}
+            </div>
+
+            <br>
+            <a href="/merchants/new" class="button">
                 Add New Merchant
-            </button></a>
-    </p>
-</section>
+            </a>
+        </section>
 
-<h1>Products</h1>
+    <h1>Products</h1>
 
-<section>
-
-    {% for product in products %}
-
-    <p align="center"><a href="/products/{{ product.id }}">
-            <button>
+    <section class="row-div">
+        
+        <div>
+            {% for product in products %}
+            <a href="/products/{{ product.id }}" class="button">
                 {{ product.name }}
-            </button></a>
-    </p>
-    {% endfor %}
-    <p align="center"><a href="/products/new">
-            <button>
-                Add New Product
-            </button></a>
-    </p>
-</section>
+            </a>
+            {% endfor %}
+        </div>
+
+        <br>
+        <a href="/products/new" class="button">
+            Add New Product
+        </a>
+    </section>
 
 
-<h1>Categories</h1>
+    <h1>Categories</h1>
 
-<section>
+    <section class="row-div">
 
-    {% for tag in all_tags %}
-
-    <p align="center"><a href="/categories/{{ tag.id }}">
-            <button>
+        <div>
+            {% for tag in all_tags %}
+            <a href="/categories/{{ tag.id }}" class="button">
                 {{ tag.category }}
-            </button></a>
-    </p>
-    {% endfor %}
-    <p align="center"><a href="/categories/new">
-            <button>
-                Add New Category
-            </button></a>
-    </p>
-</section>
+            </a>
+            {% endfor %}
+        </div>
 
+        <br>
+        <a href="/categories/new" class="button">
+            Add New Category
+        </a>
+    </section>
+</div>
 
 {% endblock content %}
