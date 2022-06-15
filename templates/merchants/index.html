@@ -2,62 +2,76 @@
 
 {% block content %}
 
-<h1>Merchants</h1>
+<main class="merchant-main">
 
-<div class="merchants-div">
+    <div class="merchants-div">
 
         <section class="row-div">
+            <h1>Merchants</h1>
 
-            <div>
+            <div class="merchant-items">
                 {% for merchant in merchants %}
-                <a href="/merchants/{{ merchant.id }}" class="button">
-                    {{ merchant.name }}
-                </a>
+                <div class="merchant-card">
+                    <a href="/merchants/{{ merchant.id }}" class="button">
+                        {{ merchant.name }}
+                    </a>
+                </div>
                 {% endfor %}
             </div>
 
-            <br>
-            <a href="/merchants/new" class="button">
-                Add New Merchant
-            </a>
+            <div class="add-merchant">
+                <a href="/merchants/new" class="table-button">
+                    Add New Merchant
+                </a>
+            </div>
+
+        </section>
+            
+
+        <section class="row-div">
+        <h1>Products</h1>
+
+            <div class="merchant-items">
+                {% for product in products %}
+                <div class="merchant-card">
+                    <a href="/products/{{ product.id }}" class="button">
+                        {{ product.name }}
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="add-merchant">
+                <a href="/products/new" class="table-button">
+                    Add New Product
+                </a>
+            </div>
         </section>
 
-    <h1>Products</h1>
-
-    <section class="row-div">
-        
-        <div>
-            {% for product in products %}
-            <a href="/products/{{ product.id }}" class="button">
-                {{ product.name }}
-            </a>
-            {% endfor %}
-        </div>
-
-        <br>
-        <a href="/products/new" class="button">
-            Add New Product
-        </a>
-    </section>
 
 
-    <h1>Categories</h1>
+        <section class="row-div">
+        <h1>Categories</h1>
 
-    <section class="row-div">
+            <div class="merchant-items">
+                {% for tag in all_tags %}
+                <div class="merchant-card">
+                    <a href="/categories/{{ tag.id }}" class="button">
+                        {{ tag.category }}
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
 
-        <div>
-            {% for tag in all_tags %}
-            <a href="/categories/{{ tag.id }}" class="button">
-                {{ tag.category }}
-            </a>
-            {% endfor %}
-        </div>
+            <div class="add-merchant">
+                <a href="/categories/new" class="table-button">
+                    Add New Category
+                </a>
+            </div>
 
-        <br>
-        <a href="/categories/new" class="button">
-            Add New Category
-        </a>
-    </section>
-</div>
+        </section>
+
+    </div>
+</main>
 
 {% endblock content %}

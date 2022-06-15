@@ -69,41 +69,52 @@ a, a:link, a:visited {
 
 /* TABLE STYLE */
 
-.table-div{
+.table-body {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
 
-table {
-    width: 80%;
-    border: 1px solid;
-
-}
-
-th, td {
-    /* border-bottom: 1px solid #ddd; */
-    padding: 2px;
-    text-align: center;
-    margin-right: 0;
-    margin-left: 0;
-}
-
-tr:nth-child(even) {
-    background-color: darkslategray;
-    color: whitesmoke;
-}
-
-tr:nth-child(odd) {
-    background-color: darkgrey;
-    color: whitesmoke;
+.table-div {
+    height: 500px;
+    overflow: auto;
+    margin-top: 30px;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #3949ab
+    background-color: black;
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-td > a {
-    color: black
+td {
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #edeef1;
+}
+
+.table-button {
+    border: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: #71b7e6;
 }
 
 /* BUTTON STYLE */
@@ -139,25 +150,42 @@ td > a {
 
 /* MERCHANTS STYLE */
 
+.merchant-main{
+    height: 100vh
+}
+
 .merchants-div {
-    display: grid;
-    grid-column: auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .row-div {
-    display: flex;
-    justify-content: center;
+    border-bottom: 2px solid #edeef1;
 }
 
-.merchant-button {
-    justify-content: space space-between;
+.row-div h1 {
+    font-size: 30px;
+}
+
+.merchant-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.add-merchant {
+    margin-bottom: 10px;
 }
 
 /* FORM STYLE */
 
 .form-body {
     display: flex;
-    /* height: 100vh; */
+    height: 100vh;
     justify-content: center;
     align-items: center;
     padding: 10px;

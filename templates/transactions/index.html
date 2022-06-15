@@ -20,7 +20,7 @@
     </div>
 </section>
 
-<section>
+<section class="table-body">
     <div class="table-div">
         <table>
             <tr>
@@ -42,8 +42,8 @@
                 <td>{{ transaction.merchant.name }}</td>
                 <td>{{ transaction.tag.category }}</td>
                 <td>{{ transaction.date }}</td>
-                <td><a class="black-text" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
-                <td><a class="black-text" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>
+                <td><a class="table-button" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
+                <td><a class="table-button" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>
             </tr>
             {% endfor %}
         </table>
