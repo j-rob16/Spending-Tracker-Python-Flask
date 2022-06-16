@@ -117,6 +117,20 @@ tr:nth-child(odd) {
     background-color: #71b7e6;
 }
 
+table a, 
+table a:link, 
+table a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+table a:hover, 
+table a:active, 
+table a:focus {
+     color: #71b7e6;
+     transform: rotate(3deg);
+ }
+
 /* BUTTON STYLE */
 
 .button {

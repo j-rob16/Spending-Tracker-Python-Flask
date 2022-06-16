@@ -2,47 +2,58 @@
 
 {% block content %}
 
-<form action="/transactions/{{ transaction.id }}" method="post">
+<div class="form-body">
+    <div class="form-container">
+        <div class="form-title">New Transaction</div>
 
+        <form action="/transactions/{{ transaction.id }}" method="post">
 
-    <div>
-        <label for="product">Product:</label>
-        <select name="product_id" id="product">
-            {% for product in products %}
-            <option value="{{ product.id }}">{{ product.name }}</option>
-            {% endfor %}
-        </select>
+            <div class="form-details">
+                <div class="form-input-box">
+                    <span class="details"><label for="product">Product:</label></span>
+                    <select name="product_id" id="product">
+                        {% for product in products %}
+                        <option value="{{ product.id }}">{{ product.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-input-box">
+                    <span class="details"><label for="user">User:</label></span>
+                    <select name="user_id" id="user">
+                        {% for user in users %}
+                        <option value="{{user.id}}">{{ user.first_name }} {{ user.last_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-input-box">
+                    <span class="details"><label for="merchant">Merchant:</label></span>
+                    <select name="merchant_id" id="merchant">
+                        {% for merchant in merchants %}
+                        <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-input-box">
+                    <span class="details"><label for="tag">Category:</label></span>
+                    <select name="tag_id" id="tag">
+                        {% for tag in tags %}
+                        <option value="{{ tag.id }}">{{ tag.category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-input-box">
+                    <span class="details"><label for="date">Date of Transaction:</label></span>
+                    <input type="date" id="date" name="date" value="{{ transaction.date }}">
+                </div>
+            </div>
+
+            <button type="submit" class="form-button">Update Transaction</button>
+        </form>
     </div>
-
-    <div>
-        <label for="user">User:</label>
-        <select name="user_id" id="user">
-            {% for user in users %}
-            <option value="{{user.id}}">{{ user.first_name }} {{ user.last_name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <div>
-        <label for="merchant">Merchant:</label>
-        <select name="merchant_id" id="merchant">
-            {% for merchant in merchants %}
-            <option value="{{ merchant.id }}">{{ merchant.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <div>
-        <label for="tag">Category:</label>
-        <select name="tag_id" id="tag">
-            {% for tag in tags %}
-            <option value="{{ tag.id }}">{{ tag.category }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <button type="submit">Update Transaction</button>
-
-</form>
+</div>
 
 {% endblock content %}

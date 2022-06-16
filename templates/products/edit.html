@@ -2,20 +2,27 @@
 
 {% block content %}
 
-<form action="/products/{{ product.id }}" method="post">
+<div class="form-body">
+    <div class="form-container">
+        <div class="form-title">New Product</div>
+        <form action="/products/{{ product.id }}" method="post">
 
-    <div>
-        <label for="name">Name of Product:</label>
-        <input type="text" id="name" name="name" value="{{ product.name }}" required autofocus>
+            <div class="form-details">
+                <div class="form-input-box">
+                    <span class="details"><label for="name">Name of Product:</label></span>
+                    <input type="text" id="name" name="name" value="{{ product.name }}" required autofocus>
+                </div>
+
+                <div class="form-input-box">
+                    <span class="details"><label for="price">Price of Product:</label></span>
+                    <input type="text" id="price" name="price" value="{{ product.price }}" required autofocus>
+                </div>
+            </div>
+
+            <button type="submit">Update Product</button>
+
+        </form>
     </div>
-
-    <div>
-        <label for="price">Price of Product:</label>
-        <input type="text" id="price" name="price" value="{{ product.price }}" required autofocus>
-    </div>
-
-    <button type="submit">Update Merchant</button>
-
-</form>
+</div>
 
 {% endblock %}

@@ -2,20 +2,25 @@
 
 {% block content %}
 
-<h3>{{ product.name }}</h3>
-<p>{{ product.price }}</p>
-<h2>Total spent on this product - {{ total.total_paid }}</h2>
-
-<p align="center"><a href="/products/{{ product.id }}/edit">
-    <button>
-        Edit {{ product.name }}
-    </button></a>
-</p>
-<p align="center"><a href="/products/{{ product.id }}/delete">
-    <button>
-        Delete {{ product.name }}
-    </button></a>
-</p>
+<div class="form-body">
+    <div class="form-container">
+        <section>
+            <div class="form-title">{{ product.name }}</div>
+            <div>
+                <p>Price: £{{ product.price }}</p>
+                <h2>Total spent on {{ product.name }} - £{{ total.total_paid }}</h2>
+                
+                <a href="/products/{{ product.id }}/edit" class="table-button">
+                    Edit {{ product.name }}
+                </a>
+                
+                <a href="/products/{{ product.id }}/delete" class="table-button">
+                    Delete {{ product.name }}
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
 
 <section class="table-body">
     <div class="table-div">
@@ -33,11 +38,11 @@
 
             {% for transaction in transactions %}
             <tr>
-                <td>{{ transaction.user.first_name }} {{ transaction.user.last_name }}</td>
+                <td><a href="/users/{{ transaction.user.id }}">{{ transaction.user.first_name }} {{ transaction.user.last_name}}</a></td>
                 <td>£ {{ transaction.price }}</td>
-                <td>{{ transaction.product.name }}</td>
-                <td>{{ transaction.merchant.name }}</td>
-                <td>{{ transaction.tag.category }}</td>
+                <td><a href="/products/{{ transaction.product.id }}">{{ transaction.product.name }}</a></td>
+                <td><a href="/merchants/{{ transaction.merchant.id }}">{{ transaction.merchant.name }}</a></td>
+                <td><a href="/categories/{{ transaction.tag.id }}">{{ transaction.tag.category }}</a></td>
                 <td>{{ transaction.date }}</td>
                 <td><a class="table-button" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
                 <td><a class="table-button" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>

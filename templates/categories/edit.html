@@ -2,15 +2,21 @@
 
 {% block content %}
 
-<form action="/categories/{{ tag.id }}" method="post">
+<div class="form-body">
+    <div class="form-container">
+        <div class="form-title">New Category</div>
 
-    <div>
-        <label for="category">Name of Category:</label>
-        <input type="text" id="category" name="category" value="{{ tag.category }}" required autofocus>
+        <form action="/categories/{{ tag.id }}" method="post">
+
+            <div class="form-details">
+                <div class="form-input-box">
+                    <span class="details"><label for="category">Name of Category:</label></span>
+                    <input type="text" id="category" name="category" value="{{ tag.category }}" required autofocus>
+                </div>
+            </div>
+            <button type="submit" class="form-button">Update Category</button>
+        </form>
     </div>
-
-    <button type="submit">Update Category</button>
-
-</form>
+</div>
 
 {% endblock %}

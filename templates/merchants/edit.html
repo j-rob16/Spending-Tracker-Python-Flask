@@ -2,15 +2,22 @@
 
 {% block content %}
 
-<form action="/merchants/{{ merchant.id }}" method="post">
+<div class="form-body">
+    <div class="form-container">
+        <div class="form-title">New Merchant</div>
 
-    <div>
-        <label for="name">Name of Merchant:</label>
-        <input type="text" id="name" name="name" value="{{ merchant.name }}" required autofocus>
+        <form action="/merchants/{{ merchant.id }}" method="post">
+
+            <div class="form-details">
+                <div class="form-input-box">
+                    <span class="details"><label for="name">Name of Merchant:</label></span>
+                    <input type="text" id="name" name="name" value="{{ merchant.name }}" required autofocus>
+                </div>
+            </div>
+
+            <button type="submit" class="form-button">Update Merchant</button>
     </div>
-
-    <button type="submit">Update Merchant</button>
-
-</form>
+    </form>
+</div>
 
 {% endblock %}

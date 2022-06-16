@@ -2,33 +2,38 @@
 
 {% block content %}
 
-<h1> {{ user.first_name }}'s Account:</h1>
+<div class="form-body">
+    <div class="form-container">
+        <section>
+            <div class="form-title">{{ user.first_name }}'s Account</div>
+            <div>
+                <h3>First Name:</h3>
+                <p>{{ user.first_name }}</p>
 
-<h3>First Name:</h3>
-<p>{{ user.first_name }}</p>
+                <h3>Last Name:</h3>
+                <p>{{ user.last_name }}</p>
 
-<h3>Last Name:</h3>
-<p>{{ user.last_name }}</p>
+                <h3>Age:</h3>
+                <p>{{ user.age }}</p>
 
-<h3>Age:</h3>
-<p>{{ user.age }}</p>
+                <h3>Account Balance:</h3>
+                <p>{{ user.wallet }}</p>
 
-<h3>Account Balance:</h3>
-<p>{{ user.wallet }}</p>
+                <h3>Total spent by {{ user.first_name }}</h3>
+                <p>{{ total.total_paid }}</p>
 
-<h3>Total spent by {{ user.first_name }}</h3>
-<p>{{ total.total_paid }}</p>
+                <a href="/users/{{ user.id }}/edit" class="table-button">
+                    Edit {{ user.first_name }}'s Account
+                </a>
 
-<p align="center"><a href="/users/{{ user.id }}/edit">
-    <button>
-        Edit {{ user.first_name }}'s Account
-    </button></a>
-</p>
-<p align="center"><a href="/users/{{ user.id }}/delete">
-    <button>
-        Delete {{ user.first_name }}'s Account
-    </button></a>
-</p>
+                <a href="/users/{{ user.id }}/delete" class="table-button">
+                    Delete {{ user.first_name }}'s Account
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+
 
 <section class="table-body">
     <div class="table-div">
@@ -46,11 +51,11 @@
 
             {% for transaction in transactions %}
             <tr>
-                <td>{{ transaction.user.first_name }} {{ transaction.user.last_name }}</td>
+                <td><a href="/users/{{ transaction.user.id }}">{{ transaction.user.first_name }} {{ transaction.user.last_name}}</a></td>
                 <td>£ {{ transaction.price }}</td>
-                <td>{{ transaction.product.name }}</td>
-                <td>{{ transaction.merchant.name }}</td>
-                <td>{{ transaction.tag.category }}</td>
+                <td><a href="/products/{{ transaction.product.id }}">{{ transaction.product.name }}</a></td>
+                <td><a href="/merchants/{{ transaction.merchant.id }}">{{ transaction.merchant.name }}</a></td>
+                <td><a href="/categories/{{ transaction.tag.id }}">{{ transaction.tag.category }}</a></td>
                 <td>{{ transaction.date }}</td>
                 <td><a class="table-button" href="/transactions/{{ transaction.id }}/edit">Edit</a></td>
                 <td><a class="table-button" href="/transactions/{{ transaction.id }}/delete">Delete</a></td>
