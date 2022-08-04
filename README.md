@@ -85,6 +85,8 @@ The following Languages, Frameworks & Libraries were used to build this project.
 * [![Python][Python-pic]][Python-url]
 * [![Flask][Flask-pic]][Flask-url]
 * [![PostgreSQL][Postgres]][Postgres-url]
+* [![HTML5][HTML5-pic]][HTML5-url]
+* [![CSS3][CSS3-pic]][CSS3-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -223,8 +225,12 @@ Use this space to list resources you find helpful and would like to give credit 
 [Angular-url]: https://angular.io/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[CSS3-pic]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Flask-pic]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/
+[HTML5-pic]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
+[HTML5-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
 [Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
